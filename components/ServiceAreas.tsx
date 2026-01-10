@@ -1,0 +1,128 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { MapPin, CheckCircle } from 'lucide-react'
+
+const areas = [
+  { name: 'Cork City', primary: true },
+  { name: 'Douglas', primary: true },
+  { name: 'Ballincollig', primary: true },
+  { name: 'Carrigaline', primary: true },
+  { name: 'Cobh', primary: false },
+  { name: 'Midleton', primary: false },
+  { name: 'Glanmire', primary: false },
+  { name: 'Bishopstown', primary: false },
+  { name: 'Blackrock', primary: false },
+  { name: 'Rochestown', primary: false },
+  { name: 'Passage West', primary: false },
+  { name: 'Blarney', primary: false },
+]
+
+export default function ServiceAreas() {
+  return (
+    <section id="areas" className="py-20 md:py-28 bg-white">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Map placeholder */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative order-2 lg:order-1"
+          >
+            <div className="aspect-square rounded-2xl bg-slate-100 overflow-hidden relative">
+              {/* Stylized map representation */}
+              <div className="absolute inset-0 bg-gradient-to-br from-trust-50 to-trust-100">
+                {/* Decorative circles representing coverage */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="w-64 h-64 rounded-full border-2 border-trust-200 opacity-50" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-2 border-trust-300 opacity-60" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-trust-400 opacity-70" />
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-trust-500" />
+                </div>
+
+                {/* Location pins */}
+                {[
+                  { x: '50%', y: '50%' },
+                  { x: '60%', y: '45%' },
+                  { x: '40%', y: '55%' },
+                  { x: '55%', y: '60%' },
+                  { x: '45%', y: '40%' },
+                ].map((pos, i) => (
+                  <div
+                    key={i}
+                    className="absolute animate-bounce-subtle"
+                    style={{
+                      left: pos.x,
+                      top: pos.y,
+                      animationDelay: `${i * 200}ms`,
+                    }}
+                  >
+                    <MapPin className="w-6 h-6 text-safety-600 -ml-3 -mt-6" />
+                  </div>
+                ))}
+              </div>
+
+              {/* Overlay text */}
+              <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+                <p className="font-bold text-slate-900 flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-trust-600" />
+                  Serving Cork City & County
+                </p>
+                <p className="text-sm text-slate-600">30km radius from Cork City Centre</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2"
+          >
+            <div className="divider-short mb-4" />
+            <h2 className="section-heading mb-4">
+              Areas We <span className="text-trust-600">Serve</span>
+            </h2>
+            <p className="section-subheading mb-8">
+              We cover Cork City and surrounding areas within a 30km radius.
+              Not sure if we cover your area? Just give us a call.
+            </p>
+
+            {/* Areas grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+              {areas.map((area, index) => (
+                <motion.div
+                  key={area.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`service-area-badge ${
+                    area.primary ? 'bg-trust-100 text-trust-700' : ''
+                  }`}
+                >
+                  <CheckCircle className="w-4 h-4 flex-shrink-0" />
+                  <span>{area.name}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Note */}
+            <p className="text-sm text-slate-500 mb-6">
+              <strong>Not listed?</strong> We may still be able to help.
+              Call us to check if we cover your area.
+            </p>
+
+            {/* CTA */}
+            <a href="tel:+353211234567" className="btn-primary">
+              <MapPin className="w-5 h-5" />
+              Check Your Area - 021 123 4567
+            </a>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}

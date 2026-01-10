@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   O'BRIEN PLUMBING - "RELIABLE TRADES" DESIGN SYSTEM
+   Trust Blue + Safety Orange + Industrial Clean
+   ============================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold tracking-tight text-slate-900;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  h4 { @apply text-lg md:text-xl; }
+}
+
+@layer components {
+  /* ============================================
+     BUTTONS
+     ============================================ */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           bg-trust-600 text-white font-semibold rounded-lg
+           hover:bg-trust-700 active:bg-trust-800
+           transition-all duration-200 ease-out
+           shadow-trust hover:shadow-lg hover:-translate-y-0.5
+           focus:outline-none focus:ring-2 focus:ring-trust-500 focus:ring-offset-2;
+  }
+
+  .btn-emergency {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           bg-safety-600 text-white font-bold rounded-lg
+           hover:bg-safety-700 active:bg-safety-800
+           transition-all duration-200 ease-out
+           shadow-safety hover:shadow-lg hover:-translate-y-0.5
+           animate-emergency-pulse
+           focus:outline-none focus:ring-2 focus:ring-safety-500 focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3
+           bg-white text-trust-700 font-semibold rounded-lg
+           border-2 border-trust-200
+           hover:border-trust-400 hover:bg-trust-50
+           transition-all duration-200 ease-out
+           focus:outline-none focus:ring-2 focus:ring-trust-500 focus:ring-offset-2;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2
+           text-slate-600 font-medium rounded-lg
+           hover:bg-slate-100 hover:text-slate-900
+           transition-all duration-200 ease-out;
+  }
+
+  /* ============================================
+     CARDS
+     ============================================ */
+  .card {
+    @apply bg-white rounded-xl shadow-card
+           border border-slate-200
+           transition-all duration-300 ease-out;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover hover:-translate-y-1 hover:border-slate-300;
+  }
+
+  .card-service {
+    @apply card-hover p-6 flex flex-col items-start gap-4;
+  }
+
+  .card-testimonial {
+    @apply card p-6 relative;
+  }
+
+  .card-certification {
+    @apply card p-4 flex items-center gap-4 border-l-4 border-l-trust-600;
+  }
+
+  /* ============================================
+     SECTION STYLES
+     ============================================ */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-slate-900 mb-4;
+  }
+
+  .section-subheading {
+    @apply text-lg text-slate-600 max-w-2xl;
+  }
+
+  /* ============================================
+     EMERGENCY BANNER
+     ============================================ */
+  .emergency-banner {
+    @apply bg-gradient-to-r from-safety-600 to-safety-500
+           text-white py-3 px-4
+           flex items-center justify-center gap-3
+           font-semibold text-sm md:text-base;
+  }
+
+  .emergency-banner-sticky {
+    @apply emergency-banner fixed bottom-0 left-0 right-0 z-50
+           shadow-lg;
+  }
+
+  /* ============================================
+     BADGES
+     ============================================ */
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1
+           rounded-full text-sm font-medium;
+  }
+
+  .badge-trust {
+    @apply badge bg-trust-100 text-trust-700;
+  }
+
+  .badge-safety {
+    @apply badge bg-safety-100 text-safety-700;
+  }
+
+  .badge-success {
+    @apply badge bg-success-100 text-success-600;
+  }
+
+  .badge-popular {
+    @apply badge bg-safety-500 text-white font-bold uppercase text-xs tracking-wider;
+  }
+
+  /* ============================================
+     FORM ELEMENTS
+     ============================================ */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg
+           border border-slate-300 bg-white
+           text-slate-900 placeholder-slate-400
+           focus:border-trust-500 focus:ring-2 focus:ring-trust-500/20 focus:outline-none
+           transition-all duration-200;
+  }
+
+  .textarea-field {
+    @apply input-field min-h-[120px] resize-y;
+  }
+
+  .select-field {
+    @apply input-field appearance-none cursor-pointer
+           bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23475569%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E')]
+           bg-[length:12px] bg-[right_1rem_center] bg-no-repeat pr-10;
+  }
+
+  /* ============================================
+     DIVIDERS
+     ============================================ */
+  .divider {
+    @apply h-px bg-slate-200 my-8;
+  }
+
+  .divider-short {
+    @apply w-20 h-1 bg-trust-600 rounded-full;
+  }
+
+  /* ============================================
+     TRUST INDICATORS
+     ============================================ */
+  .trust-grid {
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6;
+  }
+
+  .trust-item {
+    @apply flex flex-col items-center text-center gap-2;
+  }
+
+  .trust-icon {
+    @apply w-12 h-12 rounded-full bg-trust-100
+           flex items-center justify-center
+           text-trust-600;
+  }
+
+  /* ============================================
+     SERVICE AREA MAP PLACEHOLDER
+     ============================================ */
+  .service-area-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2
+           bg-slate-100 text-slate-700 rounded-lg
+           text-sm font-medium;
+  }
+
+  /* ============================================
+     BACKGROUNDS & PATTERNS
+     ============================================ */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .bg-hero-gradient {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+
+  .bg-trust-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  }
+
+  .bg-safety-gradient {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  }
+
+  /* ============================================
+     QUOTE CALLOUT
+     ============================================ */
+  .quote-callout {
+    @apply bg-trust-50 border-l-4 border-trust-600
+           p-6 rounded-r-lg;
+  }
+
+  /* ============================================
+     STAR RATING
+     ============================================ */
+  .star-rating {
+    @apply flex items-center gap-0.5 text-safety-500;
+  }
+
+  /* ============================================
+     PHONE LINK
+     ============================================ */
+  .phone-link {
+    @apply text-trust-600 hover:text-trust-700
+           font-bold text-lg md:text-xl
+           transition-colors duration-200
+           flex items-center gap-2;
+  }
+
+  .phone-link-emergency {
+    @apply text-safety-600 hover:text-safety-700
+           font-bold text-xl md:text-2xl
+           transition-colors duration-200
+           flex items-center gap-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+}
