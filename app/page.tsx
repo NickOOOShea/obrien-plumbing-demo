@@ -9,8 +9,10 @@ import Reviews from '@/components/Reviews'
 import Gallery from '@/components/Gallery'
 import QuoteForm from '@/components/QuoteForm'
 import Footer from '@/components/Footer'
-import GlobalAlertBanner from '@/components/GlobalAlertBanner'
-import globalAlert from '../data/global_alert.json'
+import GlobalAlertBanner, { type GlobalAlert } from '@/components/GlobalAlertBanner'
+import globalAlertData from '../data/global_alert.json'
+
+const globalAlert = globalAlertData as GlobalAlert
 
 export default function Home() {
   return (
