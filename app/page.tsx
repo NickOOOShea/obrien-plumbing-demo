@@ -9,10 +9,13 @@ import Reviews from '@/components/Reviews'
 import Gallery from '@/components/Gallery'
 import QuoteForm from '@/components/QuoteForm'
 import Footer from '@/components/Footer'
+import GlobalAlertBanner from '@/components/GlobalAlertBanner'
+import globalAlert from '../data/global_alert.json'
 
 export default function Home() {
   return (
     <>
+      <GlobalAlertBanner alert={globalAlert} />
       <EmergencyBanner />
       <Header />
       <main>
