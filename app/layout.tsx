@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Montserrat, Source_Sans_3 } from 'next/font/google'
 import './globals.css'
+import DemoAdminButton from '@/components/DemoAdminButton'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -142,6 +143,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         {children}
+        <DemoAdminButton />
       </body>
     </html>
   )
