@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "category": "Bathroom",
+    "title": "Modern Bathroom Renovation",
+    "description": "Complete renovation in Douglas",
+    "image": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
+  },
+  {
+    "id": "2",
+    "category": "Bathroom",
+    "title": "Luxury Ensuite",
+    "description": "High-end ensuite in Blackrock",
+    "image": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80"
+  },
+  {
+    "id": "3",
+    "category": "Bathroom",
+    "title": "Contemporary Design",
+    "description": "Minimalist bathroom in Cork City",
+    "image": "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80"
+  },
+  {
+    "id": "4",
+    "category": "Kitchen",
+    "title": "Kitchen Plumbing",
+    "description": "Full kitchen re-pipe in Ballincollig",
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"
+  },
+  {
+    "id": "5",
+    "category": "Heating",
+    "title": "Boiler Installation",
+    "description": "New combi boiler in Carrigaline",
+    "image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80"
+  },
+  {
+    "id": "6",
+    "category": "Bathroom",
+    "title": "Walk-in Shower",
+    "description": "Accessible shower room in Cobh",
+    "image": "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80"
+  }
+]

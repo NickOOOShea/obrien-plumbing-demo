@@ -1,0 +1,62 @@
+[
+  {
+    "id": "emergency",
+    "name": "Emergency Plumbing",
+    "description": "Burst pipes, severe leaks, blocked drains. Available 24/7, 365 days a year.",
+    "iconName": "AlertTriangle",
+    "priceFrom": 80,
+    "priceUnit": "call-out",
+    "popular": true,
+    "features": ["24/7 availability", "Fast response time", "No call-out fee evenings/weekends"]
+  },
+  {
+    "id": "boiler",
+    "name": "Boiler Service & Repair",
+    "description": "Annual servicing, breakdown repairs, and new boiler installations. All major brands.",
+    "iconName": "Flame",
+    "priceFrom": 90,
+    "priceUnit": "service",
+    "popular": true,
+    "features": ["All major brands", "Gas Safe registered", "12-month warranty"]
+  },
+  {
+    "id": "bathroom",
+    "name": "Bathroom Installation",
+    "description": "Complete bathroom renovations from design to finish. Transform your space.",
+    "iconName": "Bath",
+    "priceFrom": null,
+    "priceUnit": "quote",
+    "popular": false,
+    "features": ["Full project management", "Quality fixtures", "Tiling included"]
+  },
+  {
+    "id": "heating",
+    "name": "Central Heating",
+    "description": "Radiator installation, powerflush, underfloor heating, and heating system upgrades.",
+    "iconName": "Thermometer",
+    "priceFrom": 150,
+    "priceUnit": "radiator",
+    "popular": false,
+    "features": ["System design", "Energy efficient", "Zoned heating"]
+  },
+  {
+    "id": "general",
+    "name": "General Plumbing",
+    "description": "Tap repairs, toilet fixes, washing machine connections, and everyday plumbing needs.",
+    "iconName": "Wrench",
+    "priceFrom": 60,
+    "priceUnit": "hour",
+    "popular": false,
+    "features": ["No job too small", "Fair pricing", "Clean and tidy"]
+  },
+  {
+    "id": "drains",
+    "name": "Drain Clearing",
+    "description": "Blocked sinks, toilets, and outdoor drains. High-pressure jetting available.",
+    "iconName": "Droplets",
+    "priceFrom": 70,
+    "priceUnit": "job",
+    "popular": false,
+    "features": ["CCTV surveys", "High-pressure jetting", "Root removal"]
+  }
+]

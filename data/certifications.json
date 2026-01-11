@@ -1,0 +1,33 @@
+{
+  "certifications": [
+    {
+      "id": "rgii",
+      "name": "RGII Registered",
+      "description": "Registered Gas Installer of Ireland - Licensed for all gas work",
+      "iconName": "Shield",
+      "verifyUrl": "https://www.rgii.ie",
+      "number": "RGI-12345"
+    },
+    {
+      "id": "seai",
+      "name": "SEAI Registered",
+      "description": "Sustainable Energy Authority of Ireland approved contractor",
+      "iconName": "Award",
+      "verifyUrl": "https://www.seai.ie",
+      "number": null
+    },
+    {
+      "id": "ciri",
+      "name": "CIF Member",
+      "description": "Construction Industry Federation member since 2010",
+      "iconName": "BadgeCheck",
+      "verifyUrl": "https://www.cif.ie",
+      "number": null
+    }
+  ],
+  "insurance": [
+    { "label": "Public Liability", "value": "€2,000,000" },
+    { "label": "Professional Indemnity", "value": "€500,000" },
+    { "label": "Employer Liability", "value": "€2,000,000" }
+  ]
+}

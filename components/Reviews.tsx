@@ -3,45 +3,19 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
+import reviewsData from '@/data/reviews.json'
 
-const reviews = [
-  {
-    id: 1,
-    name: 'John Murphy',
-    location: 'Douglas',
-    rating: 5,
-    text: "Had an emergency leak on a Sunday night. Michael was at my door within 45 minutes. Fixed the problem quickly and professionally. Can't recommend highly enough!",
-    service: 'Emergency Plumbing',
-    date: 'December 2025',
-  },
-  {
-    id: 2,
-    name: 'Sarah Kelly',
-    location: 'Ballincollig',
-    rating: 5,
-    text: "O'Brien Plumbing installed our new bathroom from start to finish. Excellent workmanship, great communication throughout. The finished result is beautiful.",
-    service: 'Bathroom Installation',
-    date: 'November 2025',
-  },
-  {
-    id: 3,
-    name: "Patrick O'Sullivan",
-    location: 'Cork City',
-    rating: 5,
-    text: 'Regular boiler service - always on time, thorough, and leaves everything spotless. Have been using them for 5 years now. Reliable as clockwork.',
-    service: 'Boiler Service',
-    date: 'October 2025',
-  },
-  {
-    id: 4,
-    name: 'Mary Collins',
-    location: 'Carrigaline',
-    rating: 5,
-    text: 'Called about a blocked drain that other plumbers said would need major work. Michael had it cleared in under an hour with no fuss. Fair price too.',
-    service: 'Drain Clearing',
-    date: 'September 2025',
-  },
-]
+type Review = {
+  id: string
+  name: string
+  location: string
+  rating: number
+  text: string
+  service: string
+  date: string
+}
+
+const reviews = reviewsData as Review[]
 
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0)

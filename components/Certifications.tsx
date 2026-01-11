@@ -1,40 +1,36 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Award, BadgeCheck, ExternalLink } from 'lucide-react'
+import { Shield, Award, BadgeCheck, ExternalLink, LucideIcon } from 'lucide-react'
+import certificationsData from '@/data/certifications.json'
 
-const certifications = [
-  {
-    id: 'rgii',
-    name: 'RGII Registered',
-    description: 'Registered Gas Installer of Ireland - Licensed for all gas work',
-    icon: Shield,
-    verifyUrl: 'https://www.rgii.ie',
-    number: 'RGI-12345',
-  },
-  {
-    id: 'seai',
-    name: 'SEAI Registered',
-    description: 'Sustainable Energy Authority of Ireland approved contractor',
-    icon: Award,
-    verifyUrl: 'https://www.seai.ie',
-    number: null,
-  },
-  {
-    id: 'ciri',
-    name: 'CIF Member',
-    description: 'Construction Industry Federation member since 2010',
-    icon: BadgeCheck,
-    verifyUrl: 'https://www.cif.ie',
-    number: null,
-  },
-]
+// Icon lookup map
+const iconMap: Record<string, LucideIcon> = {
+  Shield,
+  Award,
+  BadgeCheck,
+}
 
-const insuranceDetails = [
-  { label: 'Public Liability', value: '€2,000,000' },
-  { label: 'Professional Indemnity', value: '€500,000' },
-  { label: 'Employer Liability', value: '€2,000,000' },
-]
+type Certification = {
+  id: string
+  name: string
+  description: string
+  iconName: string
+  verifyUrl: string
+  number: string | null
+}
+
+type Insurance = {
+  label: string
+  value: string
+}
+
+type CertificationsData = {
+  certifications: Certification[]
+  insurance: Insurance[]
+}
+
+const data = certificationsData as CertificationsData
 
 export default function Certifications() {
   return (
@@ -58,36 +54,39 @@ export default function Certifications() {
 
         {/* Certifications */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
-            >
-              <div className="w-14 h-14 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                <cert.icon className="w-7 h-7" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">{cert.name}</h3>
-              <p className="text-trust-200 mb-4">{cert.description}</p>
-              {cert.number && (
-                <p className="text-sm text-trust-300 mb-2">
-                  Registration: {cert.number}
-                </p>
-              )}
-              <a
-                href={cert.verifyUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm text-white/80 hover:text-white"
+          {data.certifications.map((cert, index) => {
+            const IconComponent = iconMap[cert.iconName] || Shield
+            return (
+              <motion.div
+                key={cert.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
               >
-                Verify Online
-                <ExternalLink className="w-3 h-3" />
-              </a>
-            </motion.div>
-          ))}
+                <div className="w-14 h-14 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                  <IconComponent className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{cert.name}</h3>
+                <p className="text-trust-200 mb-4">{cert.description}</p>
+                {cert.number && (
+                  <p className="text-sm text-trust-300 mb-2">
+                    Registration: {cert.number}
+                  </p>
+                )}
+                <a
+                  href={cert.verifyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm text-white/80 hover:text-white"
+                >
+                  Verify Online
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Insurance */}
@@ -105,7 +104,7 @@ export default function Certifications() {
               </p>
             </div>
             <div className="flex flex-wrap gap-6 md:gap-8">
-              {insuranceDetails.map((item) => (
+              {data.insurance.map((item) => (
                 <div key={item.label} className="text-center md:text-left">
                   <p className="text-2xl font-bold">{item.value}</p>
                   <p className="text-sm text-trust-300">{item.label}</p>

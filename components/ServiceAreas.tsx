@@ -2,21 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { MapPin, CheckCircle } from 'lucide-react'
+import areasData from '@/data/service-areas.json'
 
-const areas = [
-  { name: 'Cork City', primary: true },
-  { name: 'Douglas', primary: true },
-  { name: 'Ballincollig', primary: true },
-  { name: 'Carrigaline', primary: true },
-  { name: 'Cobh', primary: false },
-  { name: 'Midleton', primary: false },
-  { name: 'Glanmire', primary: false },
-  { name: 'Bishopstown', primary: false },
-  { name: 'Blackrock', primary: false },
-  { name: 'Rochestown', primary: false },
-  { name: 'Passage West', primary: false },
-  { name: 'Blarney', primary: false },
-]
+type ServiceArea = {
+  name: string
+  primary: boolean
+}
+
+const areas = areasData as ServiceArea[]
 
 export default function ServiceAreas() {
   return (
