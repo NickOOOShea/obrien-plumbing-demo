@@ -23,48 +23,33 @@ export default function ServiceAreas() {
     <section id="areas" className="py-20 md:py-28 bg-white">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Map placeholder */}
+          {/* Real Map */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
-            <div className="aspect-square rounded-2xl bg-slate-100 overflow-hidden relative">
-              {/* Stylized map representation */}
-              <div className="absolute inset-0 bg-gradient-to-br from-trust-50 to-trust-100">
-                {/* Decorative circles representing coverage */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="w-64 h-64 rounded-full border-2 border-trust-200 opacity-50" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-2 border-trust-300 opacity-60" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-2 border-trust-400 opacity-70" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-trust-500" />
-                </div>
+            <div className="aspect-square rounded-2xl overflow-hidden relative shadow-xl border border-slate-200">
+              {/* OpenStreetMap iframe centered on Cork City */}
+              <iframe
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-8.7%2C51.75%2C-8.25%2C52.05&layer=mapnik&marker=51.8985%2C-8.4756"
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="O'Brien Plumbing Service Area - Cork"
+              />
 
-                {/* Location pins */}
-                {[
-                  { x: '50%', y: '50%' },
-                  { x: '60%', y: '45%' },
-                  { x: '40%', y: '55%' },
-                  { x: '55%', y: '60%' },
-                  { x: '45%', y: '40%' },
-                ].map((pos, i) => (
-                  <div
-                    key={i}
-                    className="absolute animate-bounce-subtle"
-                    style={{
-                      left: pos.x,
-                      top: pos.y,
-                      animationDelay: `${i * 200}ms`,
-                    }}
-                  >
-                    <MapPin className="w-6 h-6 text-safety-600 -ml-3 -mt-6" />
-                  </div>
-                ))}
+              {/* Service radius overlay */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border-4 border-trust-500/40 bg-trust-500/10" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border-4 border-trust-600/50 bg-trust-600/15" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-trust-600 shadow-lg" />
               </div>
 
               {/* Overlay text */}
-              <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-4">
+              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
                 <p className="font-bold text-slate-900 flex items-center gap-2">
                   <MapPin className="w-5 h-5 text-trust-600" />
                   Serving Cork City & County

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Phone, CheckCircle, Clock, Shield, Star } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const trustPoints = [
   { icon: Clock, text: '24/7 Emergency' },
@@ -109,16 +110,17 @@ export default function Hero() {
             className="relative hidden lg:block"
           >
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder for hero image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-trust-600 to-trust-800 flex items-center justify-center">
-                <div className="text-center text-white p-8">
-                  <div className="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                    <Shield className="w-12 h-12" />
-                  </div>
-                  <p className="text-xl font-semibold">Professional Service</p>
-                  <p className="text-trust-200">Guaranteed Quality</p>
-                </div>
-              </div>
+              {/* Real hero image - modern bathroom */}
+              <Image
+                src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80"
+                alt="Modern bathroom renovation by O'Brien Plumbing - sleek design with professional finish"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              {/* Subtle overlay for better contrast */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
             </div>
 
             {/* Floating card */}

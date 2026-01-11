@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 const galleryItems = [
   {
@@ -10,36 +11,42 @@ const galleryItems = [
     category: 'Bathroom',
     title: 'Modern Bathroom Renovation',
     description: 'Complete renovation in Douglas',
+    image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80',
   },
   {
     id: 2,
-    category: 'Boiler',
-    title: 'Boiler Installation',
-    description: 'New combi boiler in Cork City',
+    category: 'Bathroom',
+    title: 'Luxury Ensuite',
+    description: 'High-end ensuite in Blackrock',
+    image: 'https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=600&q=80',
   },
   {
     id: 3,
     category: 'Bathroom',
-    title: 'Ensuite Installation',
-    description: 'Compact ensuite in Ballincollig',
+    title: 'Contemporary Design',
+    description: 'Minimalist bathroom in Cork City',
+    image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=600&q=80',
   },
   {
     id: 4,
-    category: 'Heating',
-    title: 'Underfloor Heating',
-    description: 'Wet system installation',
+    category: 'Kitchen',
+    title: 'Kitchen Plumbing',
+    description: 'Full kitchen re-pipe in Ballincollig',
+    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80',
   },
   {
     id: 5,
-    category: 'Plumbing',
-    title: 'Kitchen Plumbing',
-    description: 'Full kitchen re-pipe',
+    category: 'Heating',
+    title: 'Boiler Installation',
+    description: 'New combi boiler in Carrigaline',
+    image: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80',
   },
   {
     id: 6,
     category: 'Bathroom',
     title: 'Walk-in Shower',
-    description: 'Accessible shower room',
+    description: 'Accessible shower room in Cobh',
+    image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=600&q=80',
   },
 ]
 
@@ -82,17 +89,14 @@ export default function Gallery() {
               onClick={() => setSelectedImage(index)}
               className="group relative aspect-square rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-trust-500 focus:ring-offset-2"
             >
-              {/* Placeholder background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-trust-100 to-trust-200">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-trust-400">
-                    <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-trust-300/50 flex items-center justify-center">
-                      <ZoomIn className="w-8 h-8" />
-                    </div>
-                    <span className="text-sm font-medium">{item.category}</span>
-                  </div>
-                </div>
-              </div>
+              {/* Real image */}
+              <Image
+                src={item.image}
+                alt={`${item.title} - ${item.description}`}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -159,22 +163,22 @@ export default function Gallery() {
                 className="max-w-4xl w-full"
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="aspect-video bg-gradient-to-br from-trust-200 to-trust-300 rounded-xl flex items-center justify-center">
-                  <div className="text-center text-trust-600">
-                    <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-trust-400/50 flex items-center justify-center">
-                      <ZoomIn className="w-12 h-12" />
-                    </div>
-                    <p className="text-xl font-semibold">
-                      {galleryItems[selectedImage].title}
-                    </p>
-                    <p className="text-trust-500">
-                      {galleryItems[selectedImage].description}
-                    </p>
-                  </div>
+                <div className="relative aspect-video rounded-xl overflow-hidden">
+                  <Image
+                    src={galleryItems[selectedImage].image}
+                    alt={`${galleryItems[selectedImage].title} - ${galleryItems[selectedImage].description}`}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                    priority
+                  />
                 </div>
 
                 <div className="mt-4 text-center text-white">
-                  <p className="font-semibold">
+                  <span className="inline-block px-3 py-1 bg-trust-600 rounded-full text-sm mb-2">
+                    {galleryItems[selectedImage].category}
+                  </span>
+                  <p className="font-semibold text-xl">
                     {galleryItems[selectedImage].title}
                   </p>
                   <p className="text-slate-400">
